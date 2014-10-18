@@ -15,7 +15,7 @@ function MainService($http,$timeout,$q){
         return promise;
 */
 
-        speak("Loaded bus routs.")
+
 
         return routes = [
            {
@@ -38,6 +38,8 @@ function MainService($http,$timeout,$q){
 
     //Given a route ID fetched the Route
     this.getRoute = function($id){
+        speak("Loaded Virtual Bus. Please choose a  bus stop.")
+
         return {
             id: 1,
             name: "Virtual Bus",
