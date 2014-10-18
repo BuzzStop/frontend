@@ -1,3 +1,17 @@
+.highlight{
+    background-color:red;
+    text-decoration:underline;
+}
+
+.color1{
+    color:yellow;
+    background-color:black;
+}
+.massive{
+    font-size:5.125rem;
+}
+
+
 meta.foundation-version {
   font-family: "/5.3.3/"; }
 
@@ -25,7 +39,8 @@ meta.foundation-data-attribute-namespace {
   font-family: false; }
 
 html, body {
-  height: 100%; }
+  height: 100%;
+background:#4a4a4a;}
 
 *,
 *:before,
@@ -39,7 +54,6 @@ body {
   font-size: 100%; }
 
 body {
-  background: white;
   color: #222222;
   padding: 0;
   margin: 0;

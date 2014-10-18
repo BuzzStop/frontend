@@ -1,4 +1,4 @@
-function MainController (MainService,geolocation,$scope) {
+function MainController (MainService,geolocation,$scope,$timeout) {
 
     //Define our model
     this.user = 'Conor';
@@ -6,14 +6,37 @@ function MainController (MainService,geolocation,$scope) {
     //Default Params
     this.routes = [];
     this.routeId = 0;
-    this.destintionId = 0;
+    this.destintionId = 1;
     this.route = {};
+    this.intro = true;
+    this.vanity = true;
+    this.routePreview = 1;
+//1.5 spacing
     this.me = {
         lat:'',
         lon:''
     };
 
 
+
+    this.nextRoute = function(){
+        if(this.routePreview == this.routes.length){
+            this.routePreview = 1;
+        }else{
+            this.routePreview ++;
+        }
+
+        var route = this.getRoute(this.routePreview);
+        speak("trolololololololololololol");
+    }
+
+    this.lastRoute = function(){
+        if(this.routePreview == 1){
+            this.routePreview = this.routes.length;
+        }else{
+            this.routePreview --;
+        }
+    }
 
     //Gets list of routes
     this.getRoutes = function(){
@@ -22,6 +45,11 @@ function MainController (MainService,geolocation,$scope) {
 
     //Given a route ID fetched the Route
     this.getRoute = function($id){
+        return MainService.getRoute($id);
+    };
+
+    //Given a route ID fetched the Route
+    this.setRoute = function($id){
         this.routeId = $id;
         this.route = MainService.getRoute($id);
     };
@@ -35,7 +63,6 @@ function MainController (MainService,geolocation,$scope) {
         this.message = "Determining gelocation...";
 
         geolocation.getLocation().then(function(data){
-            console.log("got");
 
             $scope.me = {lat:data.coords.latitude, long:data.coords.longitude};
             MainController.me = $scope.me;

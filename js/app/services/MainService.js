@@ -5,15 +5,15 @@ function MainService($http,$timeout,$q){
     //Gets list of routes
     this.getRoutes = function(){
 
-    /*    var promise = $http.get('https://buzzstop.herokuapp.com/routes').then(function (response) {
+      /* var promise = $http.get('https://buzzstop.herokuapp.com/routes').then(function (response) {
             // The then function here is an opportunity to modify the response
             console.log(response);
             // The return value gets picked up by the then in the controller.
             return response.data;
         });
         // Return the promise to the controller
-        return promise;
-*/
+        return promise;*/
+
 
 
 
@@ -38,7 +38,6 @@ function MainService($http,$timeout,$q){
 
     //Given a route ID fetched the Route
     this.getRoute = function($id){
-        speak("Loaded Virtual Bus. Please choose a  bus stop.")
 
         return {
             id: 1,
