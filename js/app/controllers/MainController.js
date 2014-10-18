@@ -13,9 +13,10 @@ function MainController (MainService,$firebase) {
         }
 
     ];
-    this.routeId = 0;
+    this.routeId = 1;
     this.route = {
         id: 1,
+        name: 'Route One',
         stops: [
             {
                 id: 1,

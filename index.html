@@ -54,18 +54,18 @@
 
 <div class="row" ng-show="main.routeId > 0">
     <div class="large-12 columns">
-        <span class="label">Wow. Such Demo.</span>
+        <span class="label"><h4>{{main.route.name}} stops</h4></span>
         <div class="panel">
 
             <div class="row">
                 <div class="large-4 medium-6 small-12 columns">
-                    <h3>Your chosen route ({{main.route.name}})</h3>
+                    <h3>Choose your destination</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="large-4 medium-6 small-12 columns">
                     <ul class="list" >
-                        <li ng-repeat="route in main.routes"><a href="#">{{route.name}}</a></li>
+                        <li ng-repeat="stop in main.route.stops"><a href="#">{{stop.name}}</a><small>{{stop.lat}},{{stop.lon}}</small></li>
 
                     </ul>
                 </div>
