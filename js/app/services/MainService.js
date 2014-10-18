@@ -1,4 +1,6 @@
+
 function MainService($http,$timeout,$q){
+
 
     //Gets list of routes
     this.getRoutes = function(){
@@ -13,7 +15,9 @@ function MainService($http,$timeout,$q){
         return promise;
 */
 
-       return routes = [
+        speak("Loaded bus routs.")
+
+        return routes = [
            {
                id: 1,
                name: "Virtual Bus",
