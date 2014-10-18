@@ -1,0 +1,25 @@
+{
+    "switches":[
+        {
+            "id"       : "1",
+            "label"    : "Bedroom",
+            "status"   : "1"
+        },
+        {
+            "id"       : "2",
+            "label"    : "Dining Room",
+            "status"   : "0"
+        },
+        {
+            "id"       : "3",
+            "label"    : "Porch Light",
+            "status"   : "1"
+        },
+        {
+            "id"       : "4",
+            "label"    : "Sitting Room",
+            "status"   : "0"
+        }
+    ]
+
+}
