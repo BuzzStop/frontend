@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-touch.js"></script>
-    <script src="bower_components/angularjs-geolocation/src/geolocation.js"></script>
+    <script src="js/vendor/geolocation.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
 
@@ -65,10 +65,19 @@
                     ng-repeat="route in main.routes"
                     ng-show="main.routePreview == route.id"
                 ><h1 ng-class="{color1:main.routeId==0}">{{route.name}}</h1></li>
-
             </ul>
         </div>
     </div>
+</div>
+
+<div>
+    <ul class='list'>
+        <li
+            ng-repeat="stop in main.route.stops"
+        >{{stop.name}}</li>
+    </ul>
+
+    <h1 ng-click="main.updatePosition()">Update Location</h1>
 </div>
 
 

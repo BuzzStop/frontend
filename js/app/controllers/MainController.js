@@ -2,6 +2,7 @@ function MainController (MainService,geolocation,$scope,$timeout) {
 
     //Define our model
     this.user = 'Conor';
+    this.routeSet = false;
 
     //Default Params
     this.routes = [];
@@ -45,7 +46,7 @@ function MainController (MainService,geolocation,$scope,$timeout) {
 
     //Given a route ID fetched the Route
     this.getRoute = function($id){
-        return MainService.getRoute($id);
+        this.route = MainService.getRoute($id);
     };
 
     //Given a route ID fetched the Route
@@ -58,7 +59,7 @@ function MainController (MainService,geolocation,$scope,$timeout) {
 
     this.locateMe = function(){
 
-        console.log("test");
+        /**console.log("test");
         this.position = null;
         this.message = "Determining gelocation...";
 
@@ -71,6 +72,19 @@ function MainController (MainService,geolocation,$scope,$timeout) {
             this.parent.$apply;
             $scope.$apply;
 
+        });**/
+
+
+
+
+    }
+
+    this.updatePosition = function(){
+
+        alert("CHECKING LOCATIO")
+        geolocation.getLocation().then(function(data){
+            $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
+            alert("ALLEEERRRT")
         });
 
     }
