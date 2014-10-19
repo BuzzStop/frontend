@@ -22,6 +22,12 @@
     <script src="js/app/controllers/MainController.js"></script>
     <script src="js/app/app.js"></script>
 
+    <style>
+        #logo {
+            margin-top:100px;
+        }
+    </style>
+
 </head>
 <body ng-controller="MainController as main">
 
@@ -35,16 +41,14 @@
      ng-click="main.vanity = false"
      ng-show="main.vanity == true"
         >
-    <img src="img/logo.png"/>
+    <img id='logo' src="img/logo-dark-01.png"/>
 </div>
 
 <div class="row"
      ng-click="main.intro = false"
      ng-show="main.intro == true && main.vanity == false"
 >
-    <div class="large-12 columns ">
         <h1 class="massive"  ng-class="{color1:main.routeId==0}">Find me a bus route</h1>
-    </div>
 </div>
 
 
