@@ -82,6 +82,7 @@
 
             <div class="row">
                 <div class="large-4 medium-6 small-12 columns">
+                    <h3 ng-click="main.updateDests()">Update Destinations</h3>
                     <h3>Your Location</h3>
                     <p>Lat/Lon: {{me.lat}},{{me.long}}</p>
                 </div>
@@ -94,8 +95,11 @@
             <div class="row">
                 <div class="large-4 medium-6 small-12 columns">
                     <ul class="list stops" >
-                        <li ng-click="main.destinationId = stop.id"
-                            ng-class="{dest: main.destinationId == stop.id,closest: main.getDistance(stop) < 0.02}"
+                        <li ng-click="main.setDestination(stop.id)"
+                            ng-class="{
+                            dest: main.destinationId == stop.id,
+                            closest: main.closest == stop.idx
+                            }"
                             ng-repeat="stop in main.route.stops"
                         >
                             <a href="#">{{stop.name}}</a>
@@ -103,11 +107,14 @@
                         </li>
 
                     </ul>
+
+
+
                 </div>
             </div>
-            <div class="row">
-                <h3 ng-click="main.locateMe()">Update Location</h3>
-            </div>
+
+
+
         </div>
     </div>
 </div>

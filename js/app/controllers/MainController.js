@@ -1,18 +1,22 @@
-function MainController (MainService,geolocation,$scope,$timeout,$interpolate) {
+function MainController (MainService,geolocation,$scope,$interval,$interpolate) {
 
-    //Define our model
-    this.user = 'Conor';
-    this.routeSet = false;
-
-    //Default Params
+    //The routes and the route saved in our app for connection losses
     this.routes = [];
-    this.routeId = 0;
-    this.destintionId = 1;
     this.route = {};
-    this.intro = true;
-    this.vanity = true;
+    this.routeId = 0;
+
+    //Destintion and closest stop
+    this.destinationId = 1;
+    this.closest = 0;
+    this.arrived = 0;
+
+    //System params
+    this.intro = false;
+    this.vanity = false;
+    this.routeSet = false;
     this.routePreview = 1;
-//1.5 spacing
+
+    //1.5 spacing
     this.me = {
         lat:'',
         lon:''
@@ -28,7 +32,7 @@ function MainController (MainService,geolocation,$scope,$timeout,$interpolate) {
         }
 
         var route = this.getRoute(this.routePreview);
-        speak("trolololololololololololol");
+        speak(route.name);
     }
 
     this.lastRoute = function(){
@@ -56,10 +60,39 @@ function MainController (MainService,geolocation,$scope,$timeout,$interpolate) {
     };
 
 
+    //Set the destination
+    this.setDestination = function($id){
+        this.destinationId = $id;
+    };
+
+
+    this.updateDests = function (){
+        console.log("updating destinations");
+
+        var min = 10000;
+        angular.forEach(this.route.stops, function(value, key) {
+
+            var distance = this.getDistance(value);
+            console.log("distance" + distance);
+
+            if(distance < min){
+                min = value.id;
+            }
+
+        }, this);
+        this.closest = min;
+
+        if(this.closest == this.destinationId){
+            this.arrived = 1;
+        }else{
+            this.arrived = 0;
+        }
+
+    }
 
     this.locateMe = function(){
 
-        console.log("test");
+        console.log("Locating");
         this.position = null;
         this.message = "Determining gelocation...";
 
@@ -82,20 +115,11 @@ function MainController (MainService,geolocation,$scope,$timeout,$interpolate) {
     //Gets distance of me from a stop
     this.getDistance = function(stop){
 
-
         var lat1 = stop.lat;
         var lon1 = stop.lon;
 
         var lat2 = $scope.me.lat;
         var lon2 = $scope.me.long;
-
-        console.log("testinglolololol");
-        console.log(lat1);
-        console.log(lon1);
-        console.log(lat2);
-        console.log(lon2);
-
-
 
         var R = 6371; // km
         var φ1 = lat1.toRad();
@@ -113,30 +137,41 @@ function MainController (MainService,geolocation,$scope,$timeout,$interpolate) {
     }
 
 
-
-
-
-
     this.showPosition = function(position){
         console.log("boo");
         console.log(position);
     }
 
+    this.createLocateMe = function(mainCont){
+        return function(){
+            mainCont.locateMe(mainCont);
+        }
+    }
+
+    this.doUpdates = function(mainCont){
+        console.log("UPDATINGGGGGGGGG");
+        mainCont.locateMe();
+        mainCont.updateDests();
+        //$interval(this.createLocateMe(this),3000);
+        //$interval(this.locateMe,3000);
+    }
+
     this.init = function () {
         console.log("init");
         this.getRoutes();
-        this.locateMe();
+        this.doUpdates(this);
+        $interval(this.createLocateMe(this),3000);
 
     };
 
-
+    //Magic
     if (typeof(Number.prototype.toRad) === "undefined") {
         Number.prototype.toRad = function() {
             return this * Math.PI / 180;
         }
     }
 
-
+    //Init function
     this.init();
 
 
