@@ -9,8 +9,8 @@ function MainController (MainService,geolocation,$scope,$timeout,$interpolate) {
     this.routeId = 0;
     this.destintionId = 1;
     this.route = {};
-    this.intro = false;
-    this.vanity = false;
+    this.intro = true;
+    this.vanity = true;
     this.routePreview = 1;
 //1.5 spacing
     this.me = {
