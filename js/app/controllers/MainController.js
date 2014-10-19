@@ -12,8 +12,8 @@ function MainController (MainService,geolocation,$scope,$interval,$interpolate) 
     this.speakFlag = 0;
 
     //System params
-    this.intro = false;
-    this.vanity = false;
+    this.intro = true;
+    this.vanity = true;
     this.routeSet = false;
     this.routePreview = 1;
 
