@@ -3,6 +3,16 @@
     text-decoration:underline;
 }
 
+.stops .dest{
+    background:#000;
+    color:red;
+}
+
+.stops .closest{
+    background:#ccc;
+    color:black;
+}
+
 .color1{
     color:yellow;
     background-color:black;
