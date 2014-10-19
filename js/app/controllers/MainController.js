@@ -9,6 +9,7 @@ function MainController (MainService,geolocation,$scope,$interval,$interpolate) 
     this.destinationId = 1;
     this.closest = 0;
     this.arrived = 0;
+    this.speakFlag = 0;
 
     //System params
     this.intro = false;
@@ -87,7 +88,11 @@ function MainController (MainService,geolocation,$scope,$interval,$interpolate) 
 
             if(mainCont.closest == mainCont.destinationId){
                 mainCont.arrived = 1;
-                speak("You have arrived at your stop");
+                if(mainCont.speakFlag == 0){
+                    speak("You have arrived at your stop!");
+                    mainCont.speakFlag = 1;
+                }
+
             }else{
                 mainCont.arrived = 0;
             }

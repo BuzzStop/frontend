@@ -26,7 +26,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="47" selection-start="388" selection-end="388" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="2346">
+            <state line="9" column="47" selection-start="388" selection-end="388" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="2346">
               <folding />
             </state>
           </provider>
@@ -41,19 +41,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainController.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainController.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app/controllers/MainController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="52" selection-start="2189" selection-end="2189" vertical-scroll-proportion="-4.76" vertical-offset="1275" max-vertical-offset="3264">
+            <state line="92" column="43" selection-start="2310" selection-end="2310" vertical-scroll-proportion="0.2944882" vertical-offset="1377" max-vertical-offset="3349">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="speech.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="speech.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/vendor/speech.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.13385826" vertical-offset="0" max-vertical-offset="635">
+            <state line="5" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -100,8 +100,8 @@
         <option value="$PROJECT_DIR$/js/app/services/MainService.js" />
         <option value="$PROJECT_DIR$/css/foundation.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/app/controllers/MainController.js" />
         <option value="$PROJECT_DIR$/js/vendor/speech.js" />
+        <option value="$PROJECT_DIR$/js/app/controllers/MainController.js" />
       </list>
     </option>
   </component>
@@ -477,13 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/app/controllers/MainController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="52" selection-start="2189" selection-end="2189" vertical-scroll-proportion="-4.76" vertical-offset="1275" max-vertical-offset="3264">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/vendor/mespeak/mespeak.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="20" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="125018">
@@ -491,16 +484,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/vendor/speech.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="47" selection-start="388" selection-end="388" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="2346">
+        <state line="5" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/vendor/speech.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.13385826" vertical-offset="0" max-vertical-offset="635">
+        <state line="9" column="47" selection-start="388" selection-end="388" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="2346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app/controllers/MainController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="43" selection-start="2310" selection-end="2310" vertical-scroll-proportion="0.2944882" vertical-offset="1377" max-vertical-offset="3349">
           <folding />
         </state>
       </provider>
