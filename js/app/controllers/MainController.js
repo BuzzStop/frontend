@@ -84,9 +84,17 @@ function MainController (MainService,geolocation,$scope,$timeout) {
         alert("CHECKING LOCATIO")
         geolocation.getLocation().then(function(data){
             $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
-            alert("ALLEEERRRT")
+            alert('got data')
+            this.checkDistanceToBusStop(data.coords)
         });
 
+    }
+
+    this.checkDistanceToBusStop = function(data){
+        //for(var i = 0; i < this.route.stops.length; i++){
+        //    alert(this.route.stops[i].lat)
+        //}
+        alert(this.route.stops[0]);
     }
 
     this.showPosition = function(position){
