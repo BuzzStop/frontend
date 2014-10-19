@@ -61,23 +61,13 @@
 
             <ul class="list">
                 <li
-                    ng-click="main.getRoute(route.id)"
+                    ng-click="main.setRoute(route.id)"
                     ng-repeat="route in main.routes"
                     ng-show="main.routePreview == route.id"
                 ><h1 ng-class="{color1:main.routeId==0}">{{route.name}}</h1></li>
             </ul>
         </div>
     </div>
-</div>
-
-<div>
-    <ul class='list'>
-        <li
-            ng-repeat="stop in main.route.stops"
-        >{{stop.name}}</li>
-    </ul>
-
-    <h1 ng-click="main.updatePosition()">Update Location</h1>
 </div>
 
 
@@ -102,21 +92,20 @@
                     <ul class="list" >
                         <li ng-click="main.destinationId = stop.id"
                             ng-class="{highlight: main.destinationId == stop.id}"
-                            ng-repeat="stop in main.route.stops"><a href="#">{{stop.name}}</a><small>{{stop.lat}},{{stop.lon}}</small></li>
+                            ng-repeat="stop in main.route.stops"
+                        >
+                            <a href="#">{{stop.name}}</a>
+                            <small>{{stop.lat}},{{stop.lon}}</small>
+                            <small>Distance: {{main.getDistance(stop)}}km</small>
+                        </li>
 
                     </ul>
                 </div>
             </div>
             <div class="row">
-                <div class="large-4 medium-4 columns">
-                    <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
-                </div>
-                <div class="large-4 medium-4 columns">
-                    <p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-                </div>
-                <div class="large-4 medium-4 columns">
-                    <p><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-                </div>
+
+                <h1 ng-click="main.locateMe()">Update Location</h1>
+
             </div>
         </div>
     </div>

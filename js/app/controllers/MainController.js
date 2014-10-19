@@ -1,4 +1,4 @@
-function MainController (MainService,geolocation,$scope,$timeout) {
+function MainController (MainService,geolocation,$scope,$timeout,$interpolate) {
 
     //Define our model
     this.user = 'Conor';
@@ -59,7 +59,7 @@ function MainController (MainService,geolocation,$scope,$timeout) {
 
     this.locateMe = function(){
 
-        /**console.log("test");
+        console.log("test");
         this.position = null;
         this.message = "Determining gelocation...";
 
@@ -71,31 +71,49 @@ function MainController (MainService,geolocation,$scope,$timeout) {
             this.parent.me = MainController.me;
             this.parent.$apply;
             $scope.$apply;
+            console.log($scope.me);
 
-        });**/
-
-
-
-
-    }
-
-    this.updatePosition = function(){
-
-        alert("CHECKING LOCATIO")
-        geolocation.getLocation().then(function(data){
-            $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
-            alert('got data')
-            this.checkDistanceToBusStop(data.coords)
         });
 
+
+
+
     }
 
-    this.checkDistanceToBusStop = function(data){
-        //for(var i = 0; i < this.route.stops.length; i++){
-        //    alert(this.route.stops[i].lat)
-        //}
-        alert(this.route.stops[0]);
+
+    this.getDistance = function(stop){
+
+
+        var lat1 = stop.lat;
+        var lon1 = stop.lon;
+
+        var lat2 = $scope.me.lat;
+        var lon2 = $scope.me.long;
+
+        console.log("testinglolololol");
+        console.log(lat1);
+        console.log(lon1);
+        console.log(lat2);
+        console.log(lon2);
+
+
+
+        var R = 6371; // km
+        var φ1 = lat1.toRad();
+        var φ2 = lat2.toRad();
+        var Δφ = (lat2-lat1).toRad();
+        var Δλ = (lon2-lon1).toRad();
+
+        var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ/2) * Math.sin(Δλ/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c;
+
+        return d.toFixed(3);
     }
+
+
 
     this.showPosition = function(position){
         console.log("boo");
@@ -109,6 +127,12 @@ function MainController (MainService,geolocation,$scope,$timeout) {
 
     };
 
+
+    if (typeof(Number.prototype.toRad) === "undefined") {
+        Number.prototype.toRad = function() {
+            return this * Math.PI / 180;
+        }
+    }
 
 
     this.init();
