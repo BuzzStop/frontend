@@ -98,7 +98,7 @@
                         <li ng-click="main.setDestination(stop.id)"
                             ng-class="{
                             dest: main.destinationId == stop.id,
-                            closest: main.closest == stop.idx
+                            closest: main.closest == stop.id
                             }"
                             ng-repeat="stop in main.route.stops"
                         >

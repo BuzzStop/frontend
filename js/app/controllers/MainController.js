@@ -66,27 +66,34 @@ function MainController (MainService,geolocation,$scope,$interval,$interpolate) 
     };
 
 
-    this.updateDests = function (){
+    this.updateDests = function (mainCont){
         console.log("updating destinations");
 
-        var min = 10000;
-        angular.forEach(this.route.stops, function(value, key) {
+        console.log(typeof mainCont);
+        if(typeof mainCont !== 'undefined'){
 
-            var distance = this.getDistance(value);
-            console.log("distance" + distance);
+            var min = 10000;
+            angular.forEach(mainCont.route.stops, function(value, key) {
 
-            if(distance < min){
-                min = value.id;
+                var distance = mainCont.getDistance(value);
+                console.log("distance" + distance);
+
+                if(distance < min){
+                    min = value.id;
+                }
+
+            }, this);
+            mainCont.closest = min;
+
+            if(mainCont.closest == mainCont.destinationId){
+                mainCont.arrived = 1;
+                speak("You have arrived at your stop");
+            }else{
+                mainCont.arrived = 0;
             }
 
-        }, this);
-        this.closest = min;
-
-        if(this.closest == this.destinationId){
-            this.arrived = 1;
-        }else{
-            this.arrived = 0;
         }
+
 
     }
 
@@ -145,6 +152,7 @@ function MainController (MainService,geolocation,$scope,$interval,$interpolate) 
     this.createLocateMe = function(mainCont){
         return function(){
             mainCont.locateMe(mainCont);
+            mainCont.updateDests(mainCont);
         }
     }
 
